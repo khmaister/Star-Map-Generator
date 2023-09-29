@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Star Map Generator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Starry Moments Map Generator</h1>
+    </header>
+
+    <main>
+      <section id="star-map-form">
+        <h2>Create Your Star Map</h2>
+        <form>
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" required />
+
+          <label for="city">City:</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="Enter your city"
+            required
+          />
+
+          <button type="submit">Generate Star Map</button>
+        </form>
+      </section>
+
+      <section id="star-map-preview">
+        <h2>Preview Your Star Map</h2>
+        <!-- Display the generated star map here -->
+      </section>
+
+      <section id="order-options">
+        <button type="button" class="btn-order">Order Your Star Map</button>
+        <form>
+          <fieldset>
+            <legend>Choose Your Copy Type:</legend>
+            <label>
+              <input type="radio" name="copy-type" value="physical" required />
+              Physical Copy
+            </label>
+            <label>
+              <input type="radio" name="copy-type" value="digital" required />
+              Digital Copy
+            </label>
+          </fieldset>
+          <button type="submit">Place Order</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:starry@skyview.com">starry@skyview.com</a></p>
+        <p>Phone: +1 (123) 456-7890</p>
+        <p>Address: 123 Starry Lane, Skyview City</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>
+          Welcome to Starry Moments Map, where we help you capture the magic of
+          the night sky on your special occasions. Our star maps are designed to
+          commemorate your cherished moments under the stars.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <ul class="social-media-links">
+          <li>
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <p>&copy; 2023 Starry Moments Map</p>
+      </div>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
