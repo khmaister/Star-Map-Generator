@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     client.starChart(
         {
-            element: "#star-chart-element",
-            //style: "inverted",
+            element: "#star-chart",
+            style: "inverted",
             observer: {
                 latitude: 12.775867,
                 longitude: -23.239746,
