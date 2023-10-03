@@ -9,16 +9,17 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
+  <body class="bg-cover bg-center bg-black text-indigo-200 text-center bg-no-repeat bg-[url(assets/nasaimg.jpg)]">
     <header>
-      <h1>Starry Moments Map Generator</h1>
+      <h1 class="bg-blue-950 p-3 mb-3">Starry Moments Map Generator</h1>
     </header>
 
     <main>
       <section id="star-map-form">
         <h2>Create Your Star Map</h2>
-        <form id="search-form">
+          <form id="search-form" class="flex flex-wrap flex-col content-center">
           <label for="date">Date:</label>
           <input type="date" id="date" name="date" required />
 
@@ -34,7 +35,7 @@
             required
           />
 
-          <button type="submit">Generate Star Map</button>
+          <button type="submit" class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">Generate Star Map</button>
         </form>
       </section>
 
@@ -44,20 +45,20 @@
       </section>
 
       <section id="order-options">
-        <button type="button" class="btn-order">Order Your Star Map</button>
+        <button type="button" class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">Order Your Star Map</button>
         <form>
-          <fieldset>
-            <legend>Choose Your Copy Type:</legend>
-            <label>
+          <fieldset class="flex flex-col flex-wrap content-center">
+            <legend class="bg-blue-950 rounded-full p-2 m-2">Choose Your Copy Type:</legend>
+            <label class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">
               <input type="radio" name="copy-type" value="physical" required />
               Physical Copy
             </label>
-            <label>
+            <label class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">
               <input type="radio" name="copy-type" value="digital" required />
               Digital Copy
             </label>
           </fieldset>
-          <button type="submit">Place Order</button>
+          <button type="submit" class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">Place Order</button>
         </form>
       </section>
     </main>
