@@ -17,7 +17,7 @@ var cityName = document.getElementById("search-form").value;
 var fetchUrl = "https://geocode.maps.co/search?q=" + cityName;
 var submitButton = document.querySelector("#search-form");
 
-//Fetch API
+//Fetch API 
 function fetchData(){
     var fetchUrl = "https://geocode.maps.co/search?q=" + cityName;
 
@@ -32,9 +32,8 @@ fetch(fetchUrl).then(
 
 //Adding event listener to submitButton
 if(submitButton){
-addEventListener("click", function(event) {
     submitButton.addEventListener("click", function (event) {
         event.preventDefault();
         fetchData();
       });
-    })}
+    }
