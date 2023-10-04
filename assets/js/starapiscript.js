@@ -11,6 +11,7 @@ const authString= btoa('ea497419-ae3d-45a4-9a4c-d8c18af824f5:1c26432e95330d72eb2
         e.preventDefault()
     var client = new AstronomyAPI({
       basicToken: authString,
+      method: 'GET',
     });
     client.starChart(
         {
