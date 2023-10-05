@@ -1,17 +1,6 @@
-//Outline of process:
-    //event listener on search button & console.log function to confirm it works
-    //console.log what user types into box and try to grab data being input to box
-    //set cityName = to input
-
-//10-1-23: Testing the functionality of the API - successful//
-    //var cityName = "New Orleans";
-    //var fetchUrl = "https://geocode.maps.co/search?city=" + cityName;
-    //lat and lon returned to console
-
-//10-2-23: Variables defined, function created, event listener added for button on click,
-    //HTML updated to include search-form id: used for getElementById/querySelector
-    //No errors currently in console
-
+var lat= 0;
+var lon= 0;
+var counter = 0
 //Assigning global variables
 var cityName = document.getElementById("search-form").value;
 var fetchUrl = "https://geocode.maps.co/search?q=" + cityName;
@@ -35,5 +24,20 @@ if(submitButton){
     submitButton.addEventListener("click", function (event) {
         event.preventDefault();
         fetchData();
+        counter = 1;
+        sunriseData();
       });
     }
+
+
+// Sunrise Api
+//https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400;
+function sunriseData(){
+    if (counter === 1){
+        var sunriseFetch = "https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lon;
+        fetch(sunriseFetch).then(
+            function (response){
+            console.log(response.body);  
+            }
+        )}
+}
