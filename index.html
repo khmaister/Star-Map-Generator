@@ -9,20 +9,25 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://widgets.astronomyapi.com/cdn/astronomy-api-widgets.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
+  <body class="bg-cover bg-center bg-black text-indigo-200 text-center bg-no-repeat bg-[url(assets/nasaimg.jpg)]">
     <header>
-      <h1>Starry Moments Map Generator</h1>
+      <h1 class="bg-blue-950 p-3 mb-3">Starry Moments Map Generator</h1>
     </header>
 
-    <main>
+    <main class="flex flex-row justify-around">
       <section id="star-map-form">
-        <h2>Create Your Star Map</h2>
-        <form>
-          <label for="date">Date:</label>
+        <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-sm mx-auto">Create Your Star Map</h2>
+          <form id="search-form" class="flex flex-wrap flex-col content-center">
+          <label for="date" class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">Date:</label>
           <input type="date" id="date" name="date" required />
 
-          <label for="city">City:</label>
+          <label for="event-time" class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">Event Time:</label>
+          <input type="time" id="event-time" name="event-time" required />
+
+          <label for="city" class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">City:</label>
           <input
             type="text"
             id="city"
@@ -31,43 +36,44 @@
             required
           />
 
-          <button type="submit">Generate Star Map</button>
+          <button type="submit" class="bg-blue-950 max-w-[50%] mx-auto rounded hover:bg-blue-500 p-2 m-2">Generate Star Map</button>
         </form>
       </section>
 
       <section id="star-map-preview">
-        <h2>Preview Your Star Map</h2>
+        <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">Preview Your Star Map</h2>
         <!-- Display the generated star map here -->
+        <div id="star-chart"></div>
       </section>
 
       <section id="order-options">
-        <button type="button" class="btn-order">Order Your Star Map</button>
+        <button type="button" class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">Order Your Star Map</button>
         <form>
-          <fieldset>
-            <legend>Choose Your Copy Type:</legend>
-            <label>
+          <fieldset class="flex flex-col flex-wrap content-center">
+            <legend class="bg-blue-950 rounded-full p-2 m-2">Choose Your Copy Type:</legend>
+            <label class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">
               <input type="radio" name="copy-type" value="physical" required />
               Physical Copy
             </label>
-            <label>
+            <label class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">
               <input type="radio" name="copy-type" value="digital" required />
               Digital Copy
             </label>
           </fieldset>
-          <button type="submit">Place Order</button>
+          <button type="submit" class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">Place Order</button>
         </form>
       </section>
     </main>
 
-    <footer>
-      <div class="footer-section">
+    <footer class="flex flex-col flex-wrap">
+      <div class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-md mx-auto">
         <h3>Contact Us</h3>
         <p>Email: <a href="mailto:starry@skyview.com">starry@skyview.com</a></p>
         <p>Phone: +1 (123) 456-7890</p>
         <p>Address: 123 Starry Lane, Skyview City</p>
       </div>
 
-      <div class="footer-section">
+      <div class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-xl mx-auto">
         <h3>About Us</h3>
         <p>
           Welcome to Starry Moments Map, where we help you capture the magic of
@@ -76,7 +82,7 @@
         </p>
       </div>
 
-      <div class="footer-section">
+      <div class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-sm mx-auto">
         <h3>Follow Us</h3>
         <ul class="social-media-links">
           <li>
@@ -91,11 +97,11 @@
         </ul>
       </div>
 
-      <div class="footer-section">
+      <div class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-md mx-auto">
         <p>&copy; 2023 Starry Moments Map</p>
       </div>
     </footer>
 
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/starapiscript.js"></script>
   </body>
 </html>
