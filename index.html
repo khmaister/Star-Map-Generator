@@ -12,7 +12,7 @@
     <script src="https://widgets.astronomyapi.com/cdn/astronomy-api-widgets.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-cover bg-center bg-black text-indigo-200 text-center bg-no-repeat bg-[url(assets/nasaimg.jpg)]">
+  <body class="bg-cover bg-center bg-black text-indigo-200 text-center bg-no-repeat bg-[url(assets/nasaimg.png)]">
     <header>
       <h1 class="bg-blue-950 p-3 mb-3">Sunny Day, Starry Night</h1>
     </header>
@@ -21,17 +21,17 @@
       <section id="star-map-form">
         <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-sm mx-auto">Enter your location;</h2>
           <form id="search-form" class="flex flex-wrap flex-col content-center">
-          <label for="date" class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">Latitude;</label>
-          <input type="text" id="lat" name="lat" required />
+          <label for="city" class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">City;</label>
+          <input type="text" id="city" name="city" required />
 
-          <label for="event-time" class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">Longitude;</label>
-          <input type="text" id="lon" name="lon" required />
+          <label for="date" class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">Date;</label>
+          <input type="date" id="date" name="date" required />
 
           <button type="submit" class="bg-blue-950 max-w-[50%] mx-auto rounded hover:bg-blue-500 p-2 m-2">Submit...</button>
         </form>
       </section>
 
-      <section id="star-map-preview">
+      <section>
         <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">Sunrise, Sunset...</h2>
         <!-- Display the generated times here -->
         <div id="sunriseset"></div>
