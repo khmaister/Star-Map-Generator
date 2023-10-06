@@ -1,8 +1,8 @@
-var lat= 0;
-var lon= 0;
+var lat= 24.53;
+var lon= -63.25;
 var counter = 0
 //Assigning global variables
-var cityName = document.getElementById("search-form").value;
+var cityName = "London"//document.getElementById("search-form").value;
 var fetchUrl = "https://geocode.maps.co/search?q=" + cityName;
 var submitButton = document.querySelector("#search-form");
 
@@ -16,6 +16,12 @@ fetch(fetchUrl).then(
 })
 .then(function (data){
     console.log(data);
+    var coordinates = data [0]
+    var lat = coordinates.lat;
+    var lon = coordinates.lon;
+    console.log("Coordinates:", coordinates);
+    console.log("Latitude:", lat);
+    console.log("Longitude:", lon);
 })
 }
 
@@ -25,6 +31,7 @@ if(submitButton){
         event.preventDefault();
         fetchData();
         counter = 1;
+        console.log(counter);
         sunriseData();
       });
     }
@@ -34,7 +41,7 @@ if(submitButton){
 //https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400;
 function sunriseData(){
     if (counter === 1){
-        var sunriseFetch = "https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lon;
+        var sunriseFetch = "https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lon+"callback=mycallback";
         fetch(sunriseFetch).then(
             function (response){
             console.log(response.body);  
