@@ -16,8 +16,8 @@
     class="bg-cover bg-center bg-black text-indigo-200 text-center bg-no-repeat bg-[url(assets/nasaimg.png)]"
   >
     <header>
-      <h1 class="bg-blue-950 p-3 mb-3">Sunny Day, Starry Night</h1>
-      <form id="login-form">
+      <h1 class="bg-blue-950 p-3 mb-3">Sunny Day, Starry Night
+            <form id="login-form">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required />
 
@@ -30,20 +30,14 @@
         >
           Log In
         </button>
-      </form>
+      </form></h1>
     </header>
 
-    <main class="flex flex-row justify-around">
-      <section id="star-map-form">
-        <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-sm mx-auto">
-          Enter your location;
-        </h2>
-        <form id="search-form" class="flex flex-wrap flex-col content-center">
-          <label
-            for="city"
-            class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto"
-            >City;</label
-          >
+    <main class="flex flex-row justify-around w-[95%]">
+      <section>
+        <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-sm mx-auto">Enter your location;</h2>
+          <form id="search-form" class="flex flex-wrap flex-col content-center">
+          <label for="city" class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">City;</label>
           <input type="text" id="city" name="city" required />
 
           <label
@@ -72,11 +66,9 @@
 
       </section>
     </main>
+    <footer class="flex flex-col flex-wrap w-[95%]">
 
-    <footer class="flex flex-col flex-wrap">
-      <div
-        class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-xl mx-auto"
-      >
+      <div class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-xl mx-auto">
         <h3>About Us</h3>
         <p>
           Welcome to this little page; here we will give you what times to
