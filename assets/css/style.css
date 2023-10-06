@@ -1,0 +1,14 @@
+@media screen and (max-width: 992px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+  }
+  @media screen and (max-width: 780px) {
+    body {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+  }

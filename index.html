@@ -3,91 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Birthday Star Map Generator</title>
+    <title>Sunrise, Sunset</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <script src="https://widgets.astronomyapi.com/cdn/astronomy-api-widgets.js"></script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-cover bg-center bg-black text-indigo-200 text-center bg-no-repeat bg-[url(assets/nasaimg.jpg)]">
+  <body
+    class="bg-cover bg-center bg-black text-indigo-200 text-center bg-no-repeat bg-[url(assets/nasaimg.png)]"
+  >
     <header>
-      <h1 class="bg-blue-950 p-3 mb-3">Starry Moments Map Generator</h1>
+      <h1 class="bg-blue-950 p-3 mb-3">Sunny Day, Starry Night</h1>
+      <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <button
+          type="submit"
+          class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2"
+        >
+          Log In
+        </button>
+      </form>
     </header>
 
-    <main>
+    <main class="flex flex-row justify-around">
       <section id="star-map-form">
-        <h2>Create Your Star Map</h2>
-        <form class="flex flex-wrap flex-col content-center">
-          <label for="date">Date:</label>
+        <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-sm mx-auto">
+          Enter your location;
+        </h2>
+        <form id="search-form" class="flex flex-wrap flex-col content-center">
+          <label
+            for="city"
+            class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto"
+            >City;</label
+          >
+          <input type="text" id="city" name="city" required />
+
+          <label
+            for="date"
+            class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto"
+            >Date;</label
+          >
           <input type="date" id="date" name="date" required />
 
-          <label for="event-time">Event Time:</label>
-          <input type="time" id="event-time" name="event-time" required />
 
-          <label for="city">City:</label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            placeholder="Enter your city"
-            required
-          />
-
-          <button id="starbutton" type="submit">Generate Star Map</button>
+          <button
+            type="submit"
+            class="bg-blue-950 max-w-[50%] mx-auto rounded hover:bg-blue-500 p-2 m-2"
+          >
+            Submit...
+          </button>
         </form>
       </section>
 
-      <section id="star-map-preview">
-        <h2>Preview Your Star Map</h2>
-        <!-- Display the generated star map here -->
-        <!-- <div id="star-chart"></div> -->
-        <div id="star-chart"></div>
-    
-    
+      <section>
+        <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">
+          Sunrise, Sunset...
+        </h2>
+        <!-- Display the generated times here -->
+        <div id="sunriseset"></div>
 
-
-      </section>
-
-      <section id="order-options">
-        <button type="button" class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">Order Your Star Map</button>
-        <form>
-          <fieldset class="flex flex-col flex-wrap content-center">
-            <legend class="bg-blue-950 rounded-full p-2 m-2">Choose Your Copy Type:</legend>
-            <label class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">
-              <input type="radio" name="copy-type" value="physical" required />
-              Physical Copy
-            </label>
-            <label class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">
-              <input type="radio" name="copy-type" value="digital" required />
-              Digital Copy
-            </label>
-          </fieldset>
-          <button type="submit" class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2">Place Order</button>
-        </form>
       </section>
     </main>
 
-    <footer>
-      <div class="footer-section">
-        <h3>Contact Us</h3>
-        <p>Email: <a href="mailto:starry@skyview.com">starry@skyview.com</a></p>
-        <p>Phone: +1 (123) 456-7890</p>
-        <p>Address: 123 Starry Lane, Skyview City</p>
-      </div>
-
-      <div class="footer-section">
+    <footer class="flex flex-col flex-wrap">
+      <div
+        class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-xl mx-auto"
+      >
         <h3>About Us</h3>
         <p>
-          Welcome to Starry Moments Map, where we help you capture the magic of
-          the night sky on your special occasions. Our star maps are designed to
-          commemorate your cherished moments under the stars.
+          Welcome to this little page; here we will give you what times to
+          expect to see the sun first in the morning, and last at night! We hope
+          this helps you have a good morning, and good night! Thank you for
+          visiting.
         </p>
       </div>
-
-      <div class="footer-section">
+      <div
+        class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-sm mx-auto"
+      >
         <h3>Follow Us</h3>
         <ul class="social-media-links">
           <li>
@@ -101,12 +101,11 @@
           </li>
         </ul>
       </div>
-
-      <div class="footer-section">
-        <p>&copy; 2023 Starry Moments Map</p>
+      <div>
+        <a href="https://sunrise-sunset.org/api">https://sunrise-sunset.org/api</a>
       </div>
     </footer>
 
-    <script src="./assets/js/starapiscript.js"></script>
+    <script src="./assets/js/geocode.js"></script>
   </body>
 </html>
