@@ -9,10 +9,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <script src="https://widgets.astronomyapi.com/cdn/astronomy-api-widgets.js"></script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-cover bg-center bg-black text-indigo-200 text-center bg-no-repeat bg-[url(assets/nasaimg.png)]">
+  <body
+    class="bg-cover bg-center bg-black text-indigo-200 text-center bg-no-repeat bg-[url(assets/nasaimg.png)]"
+  >
     <header>
       <h1 class="bg-blue-950 p-3 mb-3">Sunny Day, Starry Night
             <form id="login-form">
@@ -38,30 +40,44 @@
           <label for="city" class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">City;</label>
           <input type="text" id="city" name="city" required />
 
-          <label for="date" class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">Date;</label>
+          <label
+            for="date"
+            class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto"
+            >Date;</label
+          >
           <input type="date" id="date" name="date" required />
 
-          <button type="submit" class="bg-blue-950 max-w-[50%] mx-auto rounded hover:bg-blue-500 p-2 m-2">Submit...</button>
+          <button
+            type="submit"
+            class="bg-blue-950 max-w-[50%] mx-auto rounded hover:bg-blue-500 p-2 m-2"
+          >
+            Submit...
+          </button>
         </form>
       </section>
 
       <section>
-        <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">Sunrise, Sunset...</h2>
+        <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">
+          Sunrise, Sunset...
+        </h2>
         <!-- Display the generated times here -->
         <div id="sunriseset"></div>
       </section>
     </main>
-
     <footer class="flex flex-col flex-wrap w-[95%]">
 
       <div class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-xl mx-auto">
         <h3>About Us</h3>
         <p>
-          Welcome to this little page; here we will give you what times to expect to see the sun first in the morning,
-          and last at night! We hope this helps you have a good morning, and good night! Thank you for visiting.
+          Welcome to this little page; here we will give you what times to
+          expect to see the sun first in the morning, and last at night! We hope
+          this helps you have a good morning, and good night! Thank you for
+          visiting.
         </p>
       </div>
-      <div class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-sm mx-auto">
+      <div
+        class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-sm mx-auto"
+      >
         <h3>Follow Us</h3>
         <ul class="social-media-links">
           <li>
@@ -75,8 +91,11 @@
           </li>
         </ul>
       </div>
+      <div>
+        <a href="https://sunrise-sunset.org/api">https://sunrise-sunset.org/api</a>
+      </div>
     </footer>
 
-    <script src="./assets/js/starapiscript.js"></script>
+    <script src="./assets/js/geocode.js"></script>
   </body>
 </html>
