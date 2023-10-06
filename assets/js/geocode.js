@@ -1,5 +1,5 @@
-var lat= 24.53;
-var lon= -63.25;
+var lat= 36.7264511;
+var lon= 4.4150211;
 var counter = 0
 //Assigning global variables
 var cityName = "London"//document.getElementById("search-form").value;
@@ -27,12 +27,13 @@ fetch(fetchUrl).then(
 
 //Adding event listener to submitButton
 if(submitButton){
-    submitButton.addEventListener("click", function (event) {
+    submitButton.addEventListener("click", async function (event) {
         event.preventDefault();
         fetchData();
         counter = 1;
         console.log(counter);
-        sunriseData();
+        var data = await sunriseData();
+        console.log(data);
       });
     }
 
@@ -41,10 +42,13 @@ if(submitButton){
 //https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400;
 function sunriseData(){
     if (counter === 1){
-        var sunriseFetch = "https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lon+"callback=mycallback";
-        fetch(sunriseFetch).then(
+        var sunriseFetch = "https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lon;
+        
+        return fetch(sunriseFetch).then(
             function (response){
-            console.log(response.body);  
+            //console.log(response.json()); 
+            return response.json();
             }
-        )}
+        )
+    }
 }
