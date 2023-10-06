@@ -14,7 +14,21 @@
   </head>
   <body class="bg-cover bg-center bg-black text-indigo-200 text-center bg-no-repeat bg-[url(assets/nasaimg.png)]">
     <header>
-      <h1 class="bg-blue-950 p-3 mb-3">Sunny Day, Starry Night</h1>
+      <h1 class="bg-blue-950 p-3 mb-3">Sunny Day, Starry Night
+            <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <button
+          type="submit"
+          class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2"
+        >
+          Log In
+        </button>
+      </form></h1>
     </header>
 
     <main class="flex flex-row justify-around w-[95%]">
