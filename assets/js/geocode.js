@@ -2,10 +2,10 @@ var lat= 36.7264511;
 var lon= 4.4150211;
 var counter = 0
 //Assigning global variables
-var cityName = "London"//document.getElementById("search-form").value;
+var cityName = "Cincinnati"//document.getElementById("search-form").value;
 var fetchUrl = "https://geocode.maps.co/search?q=" + cityName;
 var submitButton = document.querySelector("#search-form");
-
+let sunriseset = document.querySelector('.sunriseset');
 //Fetch API 
 function fetchData(){
     var fetchUrl = "https://geocode.maps.co/search?q=" + cityName;
@@ -34,6 +34,14 @@ if(submitButton){
         console.log(counter);
         var data = await sunriseData();
         console.log(data);
+        var setTime = data.results.sunset;
+        console.log("Sunset:",setTime);
+        var riseTime = data.results.sunrise;
+        console.log("Sunrise:",riseTime);
+        sunriseset.innerHTML += "<h3>Sunrise: "+riseTime+"<h3>";
+        sunriseset.innerHTML += "<h3>Sunset: "+setTime+"<h3>";
+
+
       });
     }
 
@@ -48,6 +56,9 @@ function sunriseData(){
             function (response){
             //console.log(response.json()); 
             return response.json();
+            
+            
+
             }
         )
     }
