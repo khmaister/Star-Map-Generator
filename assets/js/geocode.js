@@ -34,7 +34,7 @@ if(submitButton){
         sunriseset.innerHTML += "<h3>Sunrise: "+riseTime+"<h3>";
         sunriseset.innerHTML += "<h3>Sunset: "+setTime+"<h3>";
 
-=======
+
 //Assigning global variables
 var counter = 0;
 var cityNameInput = document.getElementById("city");
