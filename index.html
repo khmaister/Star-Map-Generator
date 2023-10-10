@@ -9,44 +9,63 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body
     class="bg-cover bg-center bg-black text-indigo-200 text-center bg-no-repeat bg-[url(assets/nasaimg.png)]"
   >
     <header>
-      <h1 class="bg-blue-950 p-3 mb-3">Sunny Day, Starry Night
-            <form id="login-form">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required />
+      <h1 class="bg-blue-950 p-3 mb-3">
+        Sunny Day, Starry Night
+        <form id="login-form">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            class="text-blue-500 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            class="text-blue-500 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
 
-        <button
-          type="submit"
-          class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2"
-        >
-          Log In
-        </button>
-      </form></h1>
+          <button
+            id="login-button"
+            type="submit"
+            class="bg-blue-950 rounded hover:bg-blue-500 p-2 m-2"
+          >
+            Log In
+          </button>
+        </form>
+      </h1>
     </header>
 
     <main class="flex flex-row justify-around w-[95%]">
       <section>
-        <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-sm mx-auto">Enter your location;</h2>
-          <form id="search-form" class="flex flex-wrap flex-col content-center">
-          <label for="city" class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">City;</label>
-          <input type="text" id="city" name="city" required />
-
+        <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-sm mx-auto">
+          Enter your location;
+        </h2>
+        <form id="search-form" class="flex flex-wrap flex-col content-center">
           <label
-            for="date"
+            for="city"
             class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto"
-            >Date;</label
+            >City;</label
           >
-          <input type="date" id="date" name="date" required />
-
+          <input
+            type="text"
+            id="city"
+            name="city"
+            required
+            class="text-blue-500 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
 
           <button
             type="submit"
@@ -61,14 +80,17 @@
         <h2 class="container bg-blue-950 rounded-full p-2 m-2 max-w-xs mx-auto">
           Sunrise, Sunset...
         </h2>
-        <!-- Display the generated times here -->
-        <div id="sunriseset"class="sunriseset"></div>
 
+
+        <div id="sunriseset">
+          <!-- Displayed Sunrise and sunset times -->
+        </div>
       </section>
     </main>
     <footer class="flex flex-col flex-wrap w-[95%]">
-
-      <div class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-xl mx-auto">
+      <div
+        class="footer-section container bg-blue-950 rounded-full p-2 m-2 max-w-xl mx-auto"
+      >
         <h3>About Us</h3>
         <p>
           Welcome to this little page; here we will give you what times to
@@ -94,7 +116,9 @@
         </ul>
       </div>
       <div>
-        <a href="https://sunrise-sunset.org/api">https://sunrise-sunset.org/api</a>
+        <a href="https://sunrise-sunset.org/api"
+          >https://sunrise-sunset.org/api</a
+        >
       </div>
     </footer>
 
