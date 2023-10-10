@@ -1,101 +1,118 @@
-
-//var lat= 36.7264511;
-//var lon= 4.4150211;
-
-var counter = 0
 //Assigning global variables
-//var cityName = "London"
-var cityName =document.getElementById("search-form").value;
-var fetchUrl = "https://geocode.maps.co/search?q=" + cityName;
+var counter = 0;
+var cityNameInput = document.getElementById("city");
+var usernameInput = document.getElementById("username");
 var submitButton = document.querySelector("#search-form");
+var loginButton = document.getElementById("login-button");
 
+// Adding event listener to submitButton
+if (submitButton) {
+  submitButton.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-//Adding event listener to submitButton
-if(submitButton){
-    submitButton.addEventListener("click", async function (event) {
-        event.preventDefault();
-        var cityName = document.getElementById("search-form").value;
+    var username = getUsernameFromLocalStorage();
+    var cityName = cityNameInput.value;
 
-        var coordinates = fetchData(cityName);
-        if (coordinates) {
-            counter = 1;
-            console.log(counter);
+    if (username) {
+      saveCityForUsername(username, cityName);
 
-            var data = await sunriseData(coordinates.lat, coordinates.lon);
-            console.log(data);
-        }
-    });
+      var coordinates = await fetchData(cityName);
+      if (coordinates) {
+        counter = 1;
+        var data = await sunriseData(coordinates.lat, coordinates.lon);
+      }
+    } else {
+      alert("Please log in first to save the city.");
+    }
+  });
 }
 
-//Fetch Geocoding API 
-function fetchData(){
-    var fetchUrl = "https://geocode.maps.co/search?q=" + cityName;
+if (loginButton) {
+  loginButton.addEventListener("click", function (event) {
+    event.preventDefault();
 
-return fetch(fetchUrl)
-.then(function (res){
-    return res.json()
-})
-.then(function (data){
-    console.log(data);
-    var coordinates = data [0]
-    var lat = coordinates.lat;
-    var lon = coordinates.lon;
-    console.log("Coordinates:", coordinates);
-    console.log("Latitude:", lat);
-    console.log("Longitude:", lon);
+    var username = usernameInput.value;
 
-    return { lat, lon };
-})
-.catch(function (error) {
-    console.error("Error fetching data:", error);
-    return null;
-});
+    // Check if the username exists in local storage, Retrieve it or new save
+    if (isUserLoggedIn(username)) {
+      var savedCity = getCityForUsername(username);
+      cityNameInput.value = savedCity;
+    } else {
+      saveUsernameToLocalStorage(username);
+    }
+  });
+}
+
+function isUserLoggedIn(username) {
+  return !!localStorage.getItem(username);
+}
+
+function saveUsernameToLocalStorage(username) {
+  localStorage.setItem("username", username);
+}
+
+function getUsernameFromLocalStorage() {
+  return localStorage.getItem("username");
+}
+
+function saveCityForUsername(username, cityName) {
+  localStorage.setItem(username, cityName);
+}
+
+function getCityForUsername(username) {
+  return localStorage.getItem(username);
+}
+
+//Fetch Geocoding API
+async function fetchData(cityName) {
+  var fetchUrl = "https://geocode.maps.co/search?q=" + cityName;
+
+  return fetch(fetchUrl)
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (data) {
+      var coordinates = data[0];
+      var lat = coordinates.lat;
+      var lon = coordinates.lon;
+
+      return { lat, lon };
+    })
+    .catch(function (error) {
+      console.error("Error fetching data:", error);
+      return null;
+    });
 }
 
 // Fetch Sunrise Api
-//https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400;
-function sunriseData(lat, lon){
-    if (counter === 1){
-        var sunriseFetch = "https://api.sunrise-sunset.org/json?lat="+lat+"&lng="+lon;
-        
-        return fetch(sunriseFetch)
-        .then(function (response){
-            //console.log(response.json()); 
-            return response.json();
-            }
-        )
+function sunriseData(lat, lon) {
+  if (counter === 1) {
+    var sunriseFetch =
+      "https://api.sunrise-sunset.org/json?lat=" + lat + "&lng=" + lon;
+
+    return (
+      fetch(sunriseFetch)
+        .then(function (response) {
+          return response.json();
+        })
         //pull data from JSON
-        .then(function (results){
-        //var promise = results [0]
-        //var sunriseTime = results.sunrise;
-        //var sunsetTime = results.sunset;
-        var sunriseTime = results.results.sunrise;
-        var sunsetTime = results.results.sunset;
-            
-        //console.log("Sunrise Data:", promise);
-        console.log("Sunrise Time:", sunriseTime);
-        console.log("Sunset Time:", sunsetTime); 
+        .then(function (results) {
+          var sunriseTime = results.results.sunrise;
+          var sunsetTime = results.results.sunset;
 
-        // Get the target element where you want to display the times
-        var targetElement = document.getElementById("sunriseset");
-        // Clear previous data
-        targetElement.innerHTML = ""; 
-
-        // Create a new <p> element for sunrise time
-        var sunriseHTML = document.createElement("p");
-        sunriseHTML.textContent = "Sunrise Time: " + sunriseHTML;
-
-        // Create a new <p> element for sunset time
-        var sunsetHTML = document.createElement("p");
-        sunsetHTML.textContent = "Sunset Time: " + sunsetHTML;
-
-        // Append the elements to the target element
-        targetElement.appendChild(sunriseHTML);
-        targetElement.appendChild(sunsetHTML);
-    })
-    .catch(function (error) {
-        console.error("Error fetching sunrise data:", error);
-    });
-    }
-
+          // Display the data in the UI
+          var targetElement = document.getElementById("sunriseset");
+          targetElement.innerHTML = "";
+          var sunriseHTML = document.createElement("p");
+          sunriseHTML.textContent = "Sunrise Time: " + sunriseTime;
+          var sunsetHTML = document.createElement("p");
+          sunsetHTML.textContent = "Sunset Time: " + sunsetTime;
+          targetElement.appendChild(sunriseHTML);
+          targetElement.appendChild(sunsetHTML);
+        })
+        .catch(function (error) {
+          console.error("Error fetching sunrise data:", error);
+        })
+    );
+  }
 }
