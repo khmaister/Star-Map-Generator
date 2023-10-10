@@ -81,7 +81,6 @@ function sunriseData(lat, lon){
         // Clear previous data
         targetElement.innerHTML = ""; 
 
-
         // Create a new <p> element for sunrise time
         var sunriseHTML = document.createElement("p");
         sunriseHTML.textContent = "Sunrise Time: " + sunriseHTML;
