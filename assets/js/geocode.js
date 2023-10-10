@@ -61,6 +61,7 @@ if (submitButton) {
     } else {
       alert("Please log in first to save the city.");
     }
+    cityNameInput.value = "";
   });
 }
 
@@ -77,6 +78,7 @@ if (loginButton) {
       cityNameInput.value = savedCity;
     } else {
       saveUsernameToLocalStorage(username);
+      cityNameInput.value = "";
     }
   });
 }
@@ -155,14 +157,18 @@ function sunriseData(lat, lon) {
         .then(function (results) {
           var sunriseTime = results.results.sunrise;
           var sunsetTime = results.results.sunset;
+          var cityName = cityNameInput.value;
 
           // Display the data in the UI
           var targetElement = document.getElementById("sunriseset");
           targetElement.innerHTML = "";
+          var cityHTML = document.createElement("h1");
+          cityHTML.textContent = "City of " + cityName;
           var sunriseHTML = document.createElement("p");
           sunriseHTML.textContent = "Sunrise Time: " + sunriseTime;
           var sunsetHTML = document.createElement("p");
           sunsetHTML.textContent = "Sunset Time: " + sunsetTime;
+          targetElement.appendChild(cityHTML);
           targetElement.appendChild(sunriseHTML);
           targetElement.appendChild(sunsetHTML);
         })
