@@ -78,6 +78,9 @@ function sunriseData(lat, lon){
 
         // Get the target element where you want to display the times
         var targetElement = document.getElementById("sunriseset");
+        // Clear previous data
+        targetElement.innerHTML = ""; 
+
 
         // Create a new <p> element for sunrise time
         var sunriseHTML = document.createElement("p");
