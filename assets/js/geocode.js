@@ -104,15 +104,9 @@ function sunriseData(lat, lon) {
           var targetElement = document.getElementById("sunriseset");
           targetElement.innerHTML = "";
           var sunriseHTML = document.createElement("p");
-          sunriseHTML.classList.add(
-            "bg-blue-950 text-blue-500 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          );
           sunriseHTML.textContent = "Sunrise Time: " + sunriseTime;
           var sunsetHTML = document.createElement("p");
           sunsetHTML.textContent = "Sunset Time: " + sunsetTime;
-          sunsetHTML.classList.add(
-            "bg-blue-950 text-blue-500 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          );
           targetElement.appendChild(sunriseHTML);
           targetElement.appendChild(sunsetHTML);
         })
